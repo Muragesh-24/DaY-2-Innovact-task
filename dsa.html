@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Visual Guide</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #eef2f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    .c1 {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    header h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      text-align: center;
+      font-size: 1rem;
+      color: #555;
+    }
+    .c2 {
+      margin: 60px 0;
+    }
+    .c2 h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .c3 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .c4 {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 1 1 280px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .c4:nth-child(1) { animation-delay: 0.1s; }
+    .c4:nth-child(2) { animation-delay: 0.15s; }
+    .c4:nth-child(3) { animation-delay: 0.2s; }
+    .c4:nth-child(4) { animation-delay: 0.25s; }
+    .c4:nth-child(5) { animation-delay: 0.3s; }
+    .c4:nth-child(6) { animation-delay: 0.35s; }
+    .c4:nth-child(7) { animation-delay: 0.4s; }
+    .c4:nth-child(8) { animation-delay: 0.45s; }
+    .c4:nth-child(9) { animation-delay: 0.5s; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .c7 .c5 { background: #f5a623; }
+    .c8 {
+      font-family: monospace;
+      white-space: pre;
+      text-align: center;
+      color: #27ae60;
+      font-size: 1.4rem;
+      padding: 20px;
+      background-color: #f0fdf4;
+      border-radius: 10px;
+    }
+    .c9 {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+    .c10 {
+      width: 30px;
+      height: 30px;
+      background: #e74c3c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.8rem;
+      position: absolute;
+    }
+    .n1 { top: 50%; left: 5%; transform: translate(-50%, -50%); }
+    .n2 { top: 10%; left: 50%; transform: translate(-50%, -50%); }
+    .n3 { top: 50%; left: 95%; transform: translate(-50%, -50%); }
+    .n4 { top: 90%; left: 50%; transform: translate(-50%, -50%); }
+    .c11 {
+      width: 2px;
+      background: #999;
+      position: absolute;
+      transform-origin: top left;
+    }
+    .e12 {
+      height: 100px;
+      top: 50%;
+      left: 5%;
+      transform: rotate(-60deg);
+    }
+    .e23 {
+      height: 100px;
+      top: 10%;
+      left: 50%;
+      transform: rotate(60deg);
+    }
+    .e34 {
+      height: 100px;
+      top: 50%;
+      left: 95%;
+      transform: rotate(-120deg);
+    }
+    .e41 {
+      height: 100px;
+      top: 90%;
+      left: 50%;
+      transform: rotate(120deg);
+    }
+    .c12 {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 150px;
+      gap: 6px;
+      margin: 20px 0;
+    }
+    .c13 {
+      width: 20px;
+      background: #4a90e2;
+      border-radius: 4px;
+      transition: height 0.4s ease;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 16px;
+      border: none;
+      background: #f5a623;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 0.9rem;
+    }
+    button:hover { background: #d48806; }
+    .c14 { transform: scale(1.2); opacity: 0; animation: popIn 0.4s forwards; }
+    .c15 { animation: fadeOut 0.4s forwards; }
+    @keyframes popIn { to { transform: scale(1); opacity: 1; } }
+    @keyframes fadeOut { to { opacity: 0; transform: scale(0.5); } }
+  </style>
+</head>
+<body>
+  <div class="c1">
+    <header>
+      <h1>🔍 DSA Visual Guide</h1>
+    </header>
+    <section class="c2">
+      <h2>Arrays &amp; Linked Lists</h2>
+      <div class="c3">
+        <div class="c4">
+          <h3>Array</h3>
+          <div class="c3">
+            <div class="c5">10</div>
+            <div class="c5">20</div>
+            <div class="c5">30</div>
+            <div class="c5">40</div>
+          </div>
+          <p>Fixed-size, indexed.</p>
+        </div>
+        <div class="c4">
+          <h3>Linked List</h3>
+          <div class="c3">
+            <div class="c5">10</div><span class="c6">→</span>
+            <div class="c5">20</div><span class="c6">→</span>
+            <div class="c5">30</div><span class="c6">→</span>
+            <div class="c5">40</div>
+          </div>
+          <p>Dynamic, pointer-based.</p>
+        </div>
+      </div>
+    </section>
+    <section class="c2 c7">
+      <h2>Interactive Stack (LIFO)</h2>
+      <div class="c3">
+        <div class="c4" id="stackCard">
+          <div class="c3" id="stackContainer"></div>
+          <button onclick="stackPush()">Push</button>
+          <button onclick="stackPop()">Pop</button>
+        </div>
+      </div>
+    </section>
+    <section class="c2 c7">
+      <h2>Interactive Queue (FIFO)</h2>
+      <div class="c3">
+        <div class="c4" id="queueCard">
+          <div class="c3" id="queueContainer"></div>
+          <button onclick="queueEnq()">Enqueue</button>
+          <button onclick="queueDeq()">Dequeue</button>
+        </div>
+      </div>
+    </section>
+    <section class="c2">
+      <h2>Binary Tree</h2>
+      <div class="c3">
+        <div class="c4">
+          <h3>Tree Structure</h3>
+          <div class="c8">
+<pre>
+       10
+      /  \
+     5   15
+    /      \
+   3        20
+</pre>
+          </div>
+          <p>Hierarchical structure of nodes.</p>
+        </div>
+      </div>
+    </section>
+    <section class="c2">
+      <h2>Graph</h2>
+      <div class="c3">
+        <div class="c4">
+          <h3>Undirected Graph</h3>
+          <div class="c9">
+            <div class="c10 n1">A</div>
+            <div class="c10 n2">B</div>
+            <div class="c10 n3">C</div>
+            <div class="c10 n4">D</div>
+            <div class="c11 e12"></div>
+            <div class="c11 e23"></div>
+            <div class="c11 e34"></div>
+            <div class="c11 e41"></div>
+          </div>
+          <p>Simple undirected graph with 4 nodes.</p>
+        </div>
+      </div>
+    </section>
+    <section class="c2">
+      <h2>Sorting Algorithms</h2>
+      <div class="c3">
+        <div class="c4">
+          <h3>Bubble Sort</h3>
+          <div class="c3">
+            <div class="c5">3</div><span class="c6">&#60;&#62;</span>
+            <div class="c5">1</div><span class="c6">&#60;&#62;</span>
+            <div class="c5">2</div>
+          </div>
+          <p>Swap adjacent.</p>
+        </div>
+        <div class="c4">
+          <h3>Merge Sort</h3>
+          <div class="c3">
+            <span class="c6">⇄</span>
+          </div>
+          <p>Divide &amp; conquer.</p>
+        </div>
+        <div class="c4">
+          <h3>Quick Sort</h3>
+          <div class="c3">
+            <div class="c5">P</div><span class="c6">—</span>
+            <div class="c5">L</div><span class="c6">—</span>
+            <div class="c5">R</div>
+          </div>
+          <p>Pivot &amp; partition.</p>
+        </div>
+      </div>
+    </section>
+    <footer style="text-align:center; margin-top:60px; font-size:0.9em; color:#777;">
+      Created by Muragesh
+    </footer>
+  </div>
+  <script>
+    let stackData = [];
+    const stackContainer = document.getElementById('stackContainer');
+    function renderStack() {
+      stackContainer.innerHTML = '';
+      stackData.forEach(val => {
+        const box = document.createElement('div');
+        box.className = 'c5';
+        box.textContent = val;
+        stackContainer.appendChild(box);
+      });
+    }
+    function stackPush() {
+      const val = prompt('Enter value to push:');
+      if (val) {
+        stackData.push(val);
+        renderStack();
+        const boxes = stackContainer.querySelectorAll('.c5');
+        const last = boxes[boxes.length - 1];
+        last.classList.add('c14');
+      }
+    }
+    function stackPop() {
+      if (stackData.length) {
+        const boxes = stackContainer.querySelectorAll('.c5');
+        const last = boxes[boxes.length - 1];
+        last.classList.add('c15');
+        last.addEventListener('animationend', () => {
+          stackData.pop();
+          renderStack();
+        });
+      }
+    }
+    let queueData = [];
+    const queueContainer = document.getElementById('queueContainer');
+    function renderQueue() {
+      queueContainer.innerHTML = '';
+      queueData.forEach(val => {
+        const box = document.createElement('div');
+        box.className = 'c5';
+        box.textContent = val;
+        queueContainer.appendChild(box);
+      });
+    }
+    function queueEnq() {
+      const val = prompt('Enter value to enqueue:');
+      if (val) {
+        queueData.push(val);
+        renderQueue();
+        const boxes = queueContainer.querySelectorAll('.c5');
+        const last = boxes[boxes.length - 1];
+        last.classList.add('c14');
+      }
+    }
+    function queueDeq() {
+      if (queueData.length) {
+        const boxes = queueContainer.querySelectorAll('.c5');
+        const first = boxes[0];
+        first.classList.add('c15');
+        first.addEventListener('animationend', () => {
+          queueData.shift();
+          renderQueue();
+        });
+      }
+    }
+  </script>
+</body>
+</html>
